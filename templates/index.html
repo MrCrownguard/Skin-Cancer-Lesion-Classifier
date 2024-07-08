@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Skin Abnormality Predictor</title>
+  
+</head>
+
+<body style="background: #ADD8E6;">
+ <div class="login">
+	<h1 style="color:Black;">Skin Abnormality Prediction</h1>
+    <p>The purpose of this tool is to classify skin abnormalies from seven different catergories:
+        Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec),
+        basal cell carcinoma (bcc), benign keratosis-like lesions
+         (solar lentigines / seborrheic keratoses and lichen-planus like
+          keratoses, bkl), dermatofibroma (df), melanoma (mel), melanocytic
+           nevi (nv) and vascular lesions (vasc). The model was trained and
+            tested using the HAM10000 dataset, a large collection of multi-source 
+            dermatoscopic images of common pigmented skin lesions. The model has
+            a train accuracy of ~72% and a test accuracy of ~70%.
+    </p>
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+     <!--
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="percent biking" placeholder="Percent population biking" required="required" /><br>
+        <input type="text" name="percent smoking" placeholder="Percent population smoking" required="required" /><p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict percent population with heart disease</button></p>
+    </form>
+    -->
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" id="myFile" name="file">
+        <input type="submit" value="Submit"></p>
+    </form>
+   <h4 style="color:Black;">
+   {{ prediction_text }} </h4>
+
+ </div>
+
+
+</body>
+</html>
